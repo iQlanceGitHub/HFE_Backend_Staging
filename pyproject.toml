@@ -1,0 +1,113 @@
+[build-system]
+requires = ["setuptools >= 65.5.1"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fastapi-api"  # New name
+version = "0.1.0"
+requires-python = ">= 3.10"
+description = "FastAPI API"  # Updated description
+
+dependencies = [
+  "fastapi==0.111.0",
+  "statsmodels==0.14.2",
+  "gunicorn==22.0.0",
+  "cs-logger==0.0.1",
+  "pydantic-settings==2.2.1",
+  "SQLAlchemy==2.0.36",
+  "psycopg2-binary==2.9.10",
+  "passlib==1.7.4",
+  "python-jose==3.3.0",
+  "aiosmtplib==3.0.2",
+  "alembic==1.14.0",
+  "python-dotenv==1.0.1",
+  "pycrypto==2.6.1",
+  "pycryptodome==3.21.0",
+  "pillow==11.1.0",
+  "celery==5.4.0",
+  "stripe==11.5.0",
+  "redis==5.2.1",
+  "XlsxWriter==3.2.2",
+  "openpyxl==3.1.5",
+  "googletrans==4.0.2"
+]
+
+[tool.setuptools.packages.find]
+exclude = ["test"]
+
+[project.optional-dependencies]
+dev = [
+  "ruff",
+  "pytest",
+]
+
+[tool.ruff]
+# Ensure it is the same as Black
+line-length = 88
+
+[tool.ruff.lint]
+select = [
+  "W",    # Pycodestyle - warnings
+  "E",    # Pycodestyle - errors
+  "F",    # Pyflakes
+  "I",    # isort
+  "PL",   # Pylint
+  "UP",   # pyupgrade
+  'ERA',  # commented out code
+  'RUF',  # Ruff-specific rules,
+  'PERF', # perflint
+  'C90',  # mccabe - complexity
+  'FLY',  # flynt
+
+  # Flake8 Rules
+  'ASYNC', # flake8-async
+  'S',     # flake8-bandit
+  'T10',   # flake8-debugger
+  'B',     # flake8-bugbear
+  'EM',    # flake8-errmsg
+  'ISC',   # flake8-implicit-str-concat
+  'ICN',   # flake8-import-conventions˚
+  'LOG',   # flake8-logging
+  'PIE',   # flake8-pie
+  'T20',   # flake8-print
+  'PYI',   # flake8-pyi
+  'PT',    # flake8-pytest-style
+  'Q',     # flake8-quotes
+  'RSE',   # flake8-raise
+  'SLF',   # flake8-self
+  'SLOT',  # flake8-slots
+  'SIM',   # flake8-simplify
+  'TID',   # flake8-tidy-imports
+  'TCH',   # flake8-type-checking
+  'INT',   # flake8-gettext
+  'ARG',   # flake8-unused-arguments
+]
+
+ignore = [
+  "E501",
+  'S101',
+  'EM101',
+  'EM102',
+  'ISC001',
+  'UP006',
+  'UP035',
+  'RUF013',
+  'B904',
+  'E722',
+  'S104',
+  'SLF001',
+  'PLR0913',
+  'C901',
+  'PLR0912',
+  'PLR0915',
+  'S113',
+  'RSE102',
+]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
+docstring-code-format = true
+docstring-code-line-length = 88

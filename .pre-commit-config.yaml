@@ -1,0 +1,16 @@
+repos:
+  # Protect and discover secrets using Gitleaks
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.18.0
+    hooks:
+      - id: gitleaks
+
+  # An extremely fast Python linter and code formatter, written in Rust
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.4.1
+    hooks:
+      # Run the linter.
+      - id: ruff
+        args: ["--fix", "--exit-non-zero-on-fix", "--exclude=test"]
+      # Run the formatter.
+      - id: ruff-format

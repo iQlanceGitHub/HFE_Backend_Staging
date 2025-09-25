@@ -1,0 +1,50 @@
+<div>
+    <div style="margin: 50px auto; width: 60%; font-family: Inter;">
+        <div style="padding: 12px; background-color: #efe9d9; display: flex; border-radius: 6px; margin-bottom: 30px;">
+            <a href="#" style="width:100%; text-align:center;">
+                <img src="http://45.248.33.189:8100/images/HFElogo.png" alt="Logo" />
+            </a>
+        </div>
+
+        <p style="font-size: 16px; font-family: Inter; font-weight: 400; color: #0a0d14;">
+            Hi Admin,
+        </p> 
+
+        <p style="font-size: 16px; font-family: Inter; font-weight: 400; color: #0a0d14; line-height: 20px;">
+            You have received a new contact request from <strong>{{name}}</strong> via the HFE platform. Please find the details below:
+        </p>
+
+        <div style="margin-top: 20px; font-size: 16px; font-family: Inter; color: #0a0d14; line-height: 24px;">
+            {% if name %}
+                <strong>Name:</strong> {{ name }}<br />
+            {% endif %}
+            {% if role_type %}
+                <strong>Role Type:</strong> {{ role_type }}<br />
+            {% endif %}
+            {% if address %}
+                <strong>Address:</strong> {{ address }}<br />
+            {% endif %}
+            {% if phone %}
+                <strong>Phone:</strong> {{ phone }}<br />
+            {% endif %}
+            {% if email %}
+                <strong>Email:</strong> {{ email }}<br />
+            {% endif %}
+            {% if website %}
+                <strong>Website:</strong> {{ website }}<br />
+            {% endif %}
+            {% if message %}
+            <strong>Message:</strong> {{ message }}<br />
+            {% endif %}
+        </div>
+
+        <p style="font-size: 16px; font-family: Inter; font-weight: 500; color: #0a0d14; line-height: 20px; margin-top: 30px;">
+            Please follow up with the person as needed.
+        </p>
+
+        <p style="font-size: 16px; font-family: Inter; font-weight: 400; color: #0a0d14; line-height: 20px;">
+            Thank you,<br />
+            HFE Support Team
+        </p>
+    </div>
+</div>

@@ -1,0 +1,1 @@
+VIF_THRESHOLD = 10

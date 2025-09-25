@@ -1,0 +1,39 @@
+services:
+  postgres:
+    image: postgres:14.1-alpine
+    restart: always
+    expose: [5432]
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+  
+  redis:
+    image: redis:alpine
+    restart: always
+    ports:
+      - 6379:6379
+    volumes:
+      - redis-data:/data        
+   
+  fast-api:
+    build: { context: ".", target: fast-api }
+    depends_on:
+      - postgres
+      - redis
+    command: make run_on_docker 
+    ports:
+      - ${BACKEND_PORT}:8100
+    volumes:
+      - ./hfe_images:/usr/src/app/hfe_images
+      - ./adbanner:/usr/src/app/adbanner
+      - ./brochure:/usr/src/app/brochure
+      - ./attachments:/usr/src/app/attachments
+      - ./resume:/usr/src/app/resume 
+      - ./import_provider:/usr/src/app/import_provider
+volumes:
+  pgdata:
+  redis-data:
